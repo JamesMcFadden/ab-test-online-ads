@@ -1,4 +1,4 @@
--e git+https://github.com/JamesMcFadden/ab-test-online-ads.git@d2280805f420325b897e8de3e0fe9115d28d750c#egg=ab_test_ads
+-e git+https://github.com/JamesMcFadden/ab-test-online-ads.git@d2280805f420325b897e8de3e0fe9115d28d750c#egg=ab_test_online_ads
 astroid==4.0.2
 black==25.11.0
 click==8.3.1
