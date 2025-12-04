@@ -2,7 +2,7 @@
 import argparse
 from pathlib import Path
 
-from src.data_generation import AdExperimentConfig, generate_synthetic_data
+from ab_test_online_ads.data_generation import AdExperimentConfig, generate_synthetic_data
 
 
 def main():

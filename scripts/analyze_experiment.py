@@ -2,7 +2,7 @@
 import argparse
 import pandas as pd
 
-from src.analysis import AbTestAnalyzer
+from ab_test_online_ads.analysis import AbTestAnalyzer
 
 
 def main():
