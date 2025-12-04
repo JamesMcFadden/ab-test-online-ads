@@ -23,11 +23,7 @@ line-length = 88
 target-version = ["py313"]
 include = "src|scripts"
 
-include = '''
-(
-    include = '\.pyi?$'
-)
-'''
+include = '\.pyi?$'
 
 exclude = '''
 (

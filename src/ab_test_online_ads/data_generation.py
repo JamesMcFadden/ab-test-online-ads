@@ -9,6 +9,8 @@ import pandas as pd
 class AdExperimentConfig:
     """
     Configuration for synthetic online ads A/B experiment.
+    Version B has a slightly higher CTR, conversion rate, 
+    and revenue distribution mean.
     """
 
     n_impressions: int = 10000
