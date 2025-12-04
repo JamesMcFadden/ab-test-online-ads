@@ -1,13 +1,16 @@
 # src/data_generation.py
-import pandas as pd
-import numpy as np
 from dataclasses import dataclass
+
+import numpy as np
+import pandas as pd
+
 
 @dataclass
 class AdExperimentConfig:
     """
     Configuration for synthetic online ads A/B experiment.
     """
+
     n_impressions: int = 10000
 
     # CTR (click-through rate) per impression

@@ -1,5 +1,6 @@
 # scripts/analyze_experiment.py
 import argparse
+
 import pandas as pd
 
 from ab_test_online_ads.analysis import AbTestAnalyzer
@@ -11,7 +12,8 @@ def main():
     )
     parser.add_argument(
         "input",
-        help="Path to CSV with impression-level data (variant, clicked, converted, revenue).",
+        help="Path to CSV with impression-level data (variant, \
+        clicked, converted, revenue).",
     )
     parser.add_argument(
         "--alpha",

@@ -7,7 +7,7 @@ name = "ab-test-ads"
 version = "0.1.0"
 description = "A/B testing toolkit for online ads"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 dependencies = [
     "pandas",
     "numpy",
@@ -17,3 +17,25 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ["py313"]
+include = "src|scripts"
+
+exclude = '''
+(
+    /(\.eggs)|
+    /(\.egg-info)|
+    /(\.pytest_cache)|
+    /(\.mypy_cache)|
+    /(\.vscode)|
+    /(\.git)|
+    /__pycache__|
+    /build|
+    /dist|
+    /venv|
+    /PKG-INFO|
+    /\.venv
+)
+'''

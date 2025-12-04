@@ -1,0 +1,36 @@
+# .pylintrc
+[MASTER]
+init-hook='import sys, os; sys.path.insert(0, os.path.abspath("src"))'
+ignore=venv,.venv,build,dist,.git,__pycache__
+py-version=3.13
+recursive=yes
+
+[MESSAGES CONTROL]
+disable=
+    C0114,  # missing-module-docstring
+    C0115,  # missing-class-docstring
+    R0903,  # too-few-public-methods
+    R0801,  # duplicate-code
+    W0212, # unspecified-encoding
+    C0116,  # missing-function-docstring
+    W0612,  # unused-variable
+
+[REPORTS]
+reports=no
+score=no
+
+[FORMAT]
+max-line-length=88
+
+[DESIGN]
+max-args=10
+max-locals=25
+max-branches=12
+max-statements=50
+max-attributes=10
+
+[BASIC]
+good-names=i,j,k,x,y,df,n,pk,id
+
+[TYPECHECK]
+ignore-mixin-members=yes

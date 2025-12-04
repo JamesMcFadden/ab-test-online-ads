@@ -1,0 +1,46 @@
+name: Lint and Type Check
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          # Install dev tools
+          pip install black flake8 mypy pylint
+
+          # If you're using a pyproject.toml-based package:
+          # pip install -e .
+
+      - name: Run Black (check only)
+        run: |
+          black --check src scripts
+
+      - name: Run Flake8
+        run: |
+          flake8 src scripts
+
+      - name: Run Pylint
+        run: |
+          pylint src/ab_test_online_ads scripts/*.py
+
+      - name: Run Mypy
+        run: |
+          mypy src scripts

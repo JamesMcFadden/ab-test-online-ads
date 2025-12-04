@@ -1,10 +1,11 @@
 # src/analysis.py
-import pandas as pd
-import numpy as np
 from dataclasses import dataclass
-from typing import Literal, Dict, Any
-from statsmodels.stats.proportion import proportions_ztest
+from typing import Any, Dict, Literal
+
+import numpy as np
+import pandas as pd
 from scipy import stats
+from statsmodels.stats.proportion import proportions_ztest
 
 Variant = Literal["A", "B"]
 
@@ -49,7 +50,7 @@ class AbTestAnalyzer:
         successes = group.loc[["A", "B"], "sum"].to_numpy()
         nobs = group.loc[["A", "B"], "count"].to_numpy()
 
-        stat, p_value = proportions_ztest(successes, nobs)
+        _, p_value = proportions_ztest(successes, nobs)
         rate_a = successes[0] / nobs[0]
         rate_b = successes[1] / nobs[1]
         lift = (rate_b - rate_a) / rate_a if rate_a > 0 else np.nan
@@ -84,7 +85,9 @@ class AbTestAnalyzer:
         if denominator == "clicks":
             df_clicked = self.df[self.df["clicked"] == 1].copy()
             if df_clicked.empty:
-                raise ValueError("No clicks in dataset to compute conversion per click.")
+                raise ValueError(
+                    "No clicks in dataset to compute conversion per click."
+                )
             return AbTestAnalyzer(df_clicked, alpha=self.alpha)._binary_ztest(
                 "converted", "conversion_rate_per_click"
             )
@@ -103,7 +106,7 @@ class AbTestAnalyzer:
         rev_a = self.df[self.df["variant"] == "A"]["revenue"].to_numpy()
         rev_b = self.df[self.df["variant"] == "B"]["revenue"].to_numpy()
 
-        t_stat, p_value = stats.ttest_ind(rev_a, rev_b, equal_var=False)
+        _, p_value = stats.ttest_ind(rev_a, rev_b, equal_var=False)
         mean_a = group.loc["A", "mean"]
         mean_b = group.loc["B", "mean"]
         lift = (mean_b - mean_a) / mean_a if mean_a != 0 else np.nan
