@@ -3,7 +3,7 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ab-test-ads"
+name = "ab-test-online-ads"
 version = "0.1.0"
 description = "A/B testing toolkit for online ads"
 readme = "README.md"
