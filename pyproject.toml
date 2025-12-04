@@ -25,6 +25,7 @@ include = "src|scripts"
 
 exclude = '''
 (
+    \.pylintrc
     /(\.eggs)|
     /(\.egg-info)|
     /(\.pytest_cache)|
