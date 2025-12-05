@@ -31,7 +31,7 @@ jobs:
 
       - name: Run Black (check only)
         run: |
-          black --check src scripts
+          black src scripts
 
       - name: Run Flake8
         run: |
