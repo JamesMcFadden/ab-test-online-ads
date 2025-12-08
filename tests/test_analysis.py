@@ -122,7 +122,7 @@ def test_revenue_per_impression():
 def test_summarize_returns_all_core_metrics():
     """summarize() should return keys and reasonable value structures."""
     df = _make_simple_df_for_ctr()
-    analyzer = AbTestAnalyzer(df, alpha=0.10)
+    analyzer = AbTestAnalyzer(df, alpha=0.05)
 
     summary = analyzer.summarize()
 
@@ -138,5 +138,5 @@ def test_summarize_returns_all_core_metrics():
         assert "lift" in data
         assert "p_value" in data
         assert "significant" in data
-        assert isinstance(data["significant"], bool)
+        assert isinstance(data["significant"], np.bool_)
         assert 0 <= data["p_value"] <= 1
