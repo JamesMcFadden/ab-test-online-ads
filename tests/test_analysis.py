@@ -40,7 +40,7 @@ def _make_simple_df_for_ctr():
 def test_ctr_computation_and_significance():
     """AbTestAnalyzer.ctr should compute correct rates and positive lift."""
     df = _make_simple_df_for_ctr()
-    analyzer = AbTestAnalyzer(df, alpha=0.10)
+    analyzer = AbTestAnalyzer(df, alpha=0.05)
 
     result = analyzer.ctr()
 
@@ -53,7 +53,7 @@ def test_ctr_computation_and_significance():
 
     # Should be statistically significant with such a large difference
     assert 0 <= result.p_value <= 1
-    assert result.significant is True
+    assert result.significant is np.True_
     assert result.metric_name == "click_through_rate"
 
 
@@ -122,7 +122,7 @@ def test_revenue_per_impression():
 def test_summarize_returns_all_core_metrics():
     """summarize() should return keys and reasonable value structures."""
     df = _make_simple_df_for_ctr()
-    analyzer = AbTestAnalyzer(df, alpha=0.05)
+    analyzer = AbTestAnalyzer(df, alpha=0.10)
 
     summary = analyzer.summarize()
 
