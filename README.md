@@ -16,13 +16,13 @@ This repo provides a minimal but complete codebase to:
 - Perform statistical tests for significance
 
 ## Setup
-
+fds
 ```bash
 git clone <your-repo-url>
 cd ab_test_online_ads
 python -m venv .venv
 source .venv/bin/activate    # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+pip install -e .
 ```
 
 ### Generate synthetic experiment data
