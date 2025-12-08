@@ -8,4 +8,5 @@ src/ab_test_online_ads.egg-info/SOURCES.txt
 src/ab_test_online_ads.egg-info/dependency_links.txt
 src/ab_test_online_ads.egg-info/requires.txt
 src/ab_test_online_ads.egg-info/top_level.txt
-tests/test_something.py
+tests/test_analysis.py
+tests/test_data_generation.py

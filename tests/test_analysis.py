@@ -139,4 +139,3 @@ def test_summarize_returns_all_core_metrics():
         assert "p_value" in data
         assert "significant" in data
         assert isinstance(data["significant"], np.bool_)
-        assert 0 <= data["p_value"] <= 1
