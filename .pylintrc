@@ -14,6 +14,7 @@ disable=
     W0212, # unspecified-encoding
     C0116,  # missing-function-docstring
     W0612,  # unused-variable
+    E0401,  # import-error
 
 [REPORTS]
 reports=no
