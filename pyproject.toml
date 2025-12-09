@@ -13,6 +13,7 @@ dependencies = [
     "numpy",
     "scipy",
     "statsmodels",
+    "pytest",
 ]
 
 [tool.setuptools.packages.find]
